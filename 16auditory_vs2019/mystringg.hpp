@@ -58,6 +58,9 @@ public:
 	MyString(char New) {
 		*this = New;
 	}
+	~MyString() {
+		delete[] buffer;
+	}
 	friend std::ostream& operator<< (std::ostream& out, const MyString& New);
 	friend std::istream& operator>> (std::istream& out, const MyString& New);
 	friend MyString operator+(MyString One, MyString Two);
@@ -65,6 +68,16 @@ public:
 		MyString Ans = buffer;
 		Ans = Ans+ New;
 		buffer = Ans.buffer;
+	}
+	void* operator new(size_t size)
+	{
+		void* ptr;
+		ptr = malloc(size);
+		return ptr;
+	}
+	void operator delete(void* ptr)
+	{
+		free(ptr);
 	}
 	void operator+=(const char* New) {
 		MyString Ans = New;

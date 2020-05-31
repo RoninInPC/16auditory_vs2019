@@ -5,7 +5,7 @@ int main() {
 	MyString LOWER = "Asd";
 	LOWER = Str;
 	MyString POWER = "ASDE";
-	MyString SHOWER = (POWER + "DOWER") + LOWER;
-	std::cout << SHOWER;
+	std::cout << POWER;
+	MyString* WOWER = new MyString("SAM");
 	return 0;
 }
